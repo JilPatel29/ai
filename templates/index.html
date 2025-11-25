@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DDoS Attack Detection</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; padding: 30px; }
+        .box { background: white; max-width: 500px; margin: auto; padding: 20px; border-radius: 8px; }
+        button { width: 100%; padding:10px; background:#007bff; color:white; border:none; }
+        input, select { width:100%; padding:10px; margin-bottom:10px; }
+        .danger { background:red; color:white; padding:10px; border-radius:5px; }
+        .safe { background:green; color:white; padding:10px; border-radius:5px; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>DDoS Attack Detection</h2>
+
+    <form method="POST" action="/predict">
+        <label>Packet Count</label>
+        <input type="number" name="pktcount" required>
+        
+        <label>Byte Count</label>
+        <input type="number" name="bytecount" required>
+
+        <label>Packet Rate</label>
+        <input type="number" name="pktrate" required>
+
+        <label>Flow Count</label>
+        <input type="number" name="flows" required>
+
+        <label>Protocol</label>
+        <select name="Protocol">
+            <option value="0">UDP (0)</option>
+            <option value="1">TCP (1)</option>
+        </select>
+
+        <button type="submit">Detect DDoS</button>
+    </form>
+
+    {% if prediction_text %}
+        <div class="{{ 'danger' if 'DDoS' in prediction_text else 'safe' }}">
+            {{ prediction_text }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
