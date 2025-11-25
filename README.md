@@ -1,16 +1,16 @@
- DDoS Attack Detection Using Machine Learning
+# DDoS Attack Detection Using Machine Learning
 
- 🚀 Project Overview
+## 🚀 Project Overview
 This project detects DDoS attacks using a machine learning model (Random Forest).  
 It provides a web interface using Flask where users enter network traffic values to detect attacks.
 
-🧠 Key Features
+## 🧠 Key Features
 - Train ML model on SDN Dataset
 - Flask web app for real-time prediction
 - Only 5 inputs required
 - RandomForest model used
 
- 📂 Project Structure
+## 📂 Project Structure
 project_folder/
 ├── app.py
 ├── train_model.py
@@ -19,8 +19,10 @@ project_folder/
 ├── templates/
 │ └── index.html
 
+bash
+Copy code
 
-💻 How to Run
-
+## 💻 How to Run
+```bash
 python train_model.py   # Train model
-python app.py           # Start Flask server**
+python app.py           # Start Flask server
